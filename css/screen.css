@@ -80,6 +80,12 @@
     --global-input-focus-boxShadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
 }
 
+@media (prefers-color-scheme: dark) {
+    :root{
+        --global-input-backgroundColor: var(--global-color-neutral-xxx-dark);
+    }
+}
+
 /*------------------------------------*\
 #GENERIC
 \*------------------------------------*/
@@ -670,6 +676,8 @@ more padding on the right to avoid overlap
     margin-right: var(--global-whitespace-sm);
 }
 
+
+
 /*
     Component: Label
     ---
@@ -833,6 +841,45 @@ more padding on the right to avoid overlap
     Visually change a checkbox into a toggle
 */
 
+.c-label {
+    color: var(--label-color, var(--global-color-neutral-xx-dark));
+}
+
+.c-input {
+    border: var(--global-borderWidth) solid var(--input-borderColor, var(--global-input-borderColor));
+}
+
+.has-error {
+    --label-color: var(--global-color-error);
+    --input-borderColor: var(--global-input-error-borderColor);
+}
+
+.c-toggle-password__icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    fill: var(--global-color-neutral-x-dark);
+    top: 14px;
+    right: 15px;
+}
+
+.c-toggle-password__icon--hide {
+    display: none;
+}
+
+.c-toggle-password__checkbox:checked + .c-toggle-password__label .c-toggle-password__icon--hide {
+    display: block;
+}
+
+.c-toggle-password__checkbox:checked + .c-toggle-password__label .c-toggle-password__icon--show {
+    display: none;
+}
+
+.c-toggle-password-container{
+    position: relative;
+    display: flex;
+}
+
 .c-custom-toggle-list {
     --toggle-list-borderColor: var(--global-color-neutral-xxx-light);
     margin-bottom: var(--global-whitespace);
@@ -849,7 +896,7 @@ more padding on the right to avoid overlap
 
 .c-custom-toggle {
     --toggle-backgroundColor: var(--global-color-neutral-xxxx-light);
-    --toggle-checked-borderColor: var(--global-color-alpha-dark);
+    --toggle-checked-borderColor: var(--global-color-alp-dark);
     --toggle-checked-backgroundColor: var(--global-color-alpha);
     --toggle-focus-boxShadow: var(--global-input-focus-boxShadow);
     --toggle__switch-backgroundColor: White;
